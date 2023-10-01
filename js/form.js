@@ -5,7 +5,7 @@ let popup = document.getElementById('popup')
 let popupBtn = document.getElementById('popup-btn')
 
 popupBtn.addEventListener('click', () => {
-  popup.classList.toggle('open-popup')
+  submitHandler()
 })
 
 headerBtn.addEventListener("click", () => {
@@ -27,6 +27,20 @@ document.getElementById('main-btn').addEventListener("click", function(event) {
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
 const input = document.getElementById('popup__input');
+
+function submitHandler () {
+  if (input.value == '' || input.value == null) {
+    alert('Введите эл. почту')
+  } else {
+    if(isEmailValid(input.value)) {
+      popup.classList.toggle('open-popup');
+    } else {
+      alert('Неверный адрес эл. почты')
+    }
+
+  }
+}
+
 
 function onInput() {
   if (isEmailValid(input.value)) {
