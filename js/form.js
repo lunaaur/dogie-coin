@@ -34,6 +34,7 @@ function submitHandler () {
   } else {
     if(isEmailValid(input.value)) {
       popup.classList.toggle('open-popup');
+      input.value = ''
     } else {
       alert('Неверный адрес эл. почты')
     }
